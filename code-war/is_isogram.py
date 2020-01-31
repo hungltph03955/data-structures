@@ -27,8 +27,8 @@ def is_isogram(string):
     if string != "":
         string_lower = string.lower()
         array_string = list(string_lower)
-        arrayDupliacte = list(set(array_string))
-        if len(arrayDupliacte) < len(array_string):
+        array_duplicate = list(set(array_string))
+        if len(array_duplicate) < len(array_string):
             return False
         else:
             return True
