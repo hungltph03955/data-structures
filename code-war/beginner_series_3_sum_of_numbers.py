@@ -18,3 +18,14 @@ Sample Tests:
 Test.assert_equals(get_sum(0,1),1)
 Test.assert_equals(get_sum(0,-1),-1)
 """
+
+
+def get_sum(value_1, value_2):
+    result = 0
+    for x in range(value_1, value_2 + 1):
+        result += x
+    return result
+
+
+result = get_sum(0, 14)
+print(result)
