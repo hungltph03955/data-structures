@@ -17,15 +17,31 @@ get_sum(-1, 2) == 2  // -1 + 0 + 1 + 2 = 2
 Sample Tests:
 Test.assert_equals(get_sum(0,1),1)
 Test.assert_equals(get_sum(0,-1),-1)
+
+
+best solution:
+
+def get_sum(a,b):
+    return sum(xrange(min(a,b), max(a,b)+1))
+
 """
 
 
 def get_sum(value_1, value_2):
-    result = 0
-    for x in range(value_1, value_2 + 1):
-        result += x
-    return result
+    if value_1 == value_2:
+        return value_1
+    else:
+        result = 0
+        dir_start = value_1
+        dir_end = value_2
+        if value_2 < value_1:
+            dir_start = value_2
+            dir_end = value_1
+        for x in range(dir_start, dir_end):
+            result += x
+        result += dir_end
+        return result
 
 
-result = get_sum(0, 14)
+result = get_sum(-5, 5)
 print(result)
