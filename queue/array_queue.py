@@ -8,7 +8,7 @@ class ArrayQueue:
         self._front = 0
 
     def __len__(self):
-        ”””Return the number of elements in the queue.”””
+        """"Return the number of elements in the queue."""
         return self._size
 
     def is_empty(self):
