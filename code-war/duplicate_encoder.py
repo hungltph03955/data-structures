@@ -19,30 +19,33 @@ Test.assert_equals(duplicate_encode("recede"),"()()()")
 Test.assert_equals(duplicate_encode("Success"),")())())","should ignore case")
 
 Test.assert_equals(duplicate_encode("(( @"),"))((")
+
+
+besst solution:
+
+def duplicate_encode(word):
+    return "".join(["(" if word.lower().count(c) == 1 else ")" for c in word.lower()])
+
 """
+
+from collections import Counter
 
 
 def duplicate_encode(word):
-    string = ""
-    prev = ""
-    word_lower = list(word.lower())
-    for i in range(len(word_lower)):
-        print(i)
-        print(word_lower[i])
-        if i == 0:
-            string += '('
-            prev = word_lower[i]
-        elif word_lower[i] == prev:
-            string += '('
-            prev = word_lower[i]
+    # Counter: ham dung de thong ke tan xuat xuat hien cua 1 gia tri trong mang
+    word = word.lower()
+    new_string = ''
+    count = Counter(word)
+    print(count)
+    for x in word:
+        if count[x] == 1:
+            new_string += '('
         else:
-            string += ')'
-
-    print(string)
-    return string
+            new_string += ')'
+    return new_string
 
 
-value = "recede"
-# value = "Success"
+# value = "recede"
+value = "Success"
 result = duplicate_encode(value)
 print(result)
